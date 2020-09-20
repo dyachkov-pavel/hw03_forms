@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Новая запись{% endblock %}
+{% block header %}Новая запись{% endblock %}
+{% block content %}
+{% if next %}            
+    <div class="alert alert-info" role="alert">
+    Вы обратились к странице, доступ к которой возможен только для залогиненных пользователей.<br>
+    Пожалуйста, авторизуйтесь.
+    </div>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Отправить">
+</form>
+{% endblock %}
